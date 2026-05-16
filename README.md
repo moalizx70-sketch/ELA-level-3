@@ -492,7 +492,7 @@
   <h1>مراجعة ريادة الأعمال<br>الشاملة</h1>
   <p>المعهد المصري — أكاديمية الإسكندرية للإدارة والمحاسبة | الفرقة الثالثة</p>
   <div class="stats-row">
-    <div class="stat"><span class="stat-num">8</span><span class="stat-label">محاضرات</span></div>
+    <div class="stat"><span class="stat-num">7</span><span class="stat-label">محاضرات</span></div>
     <div class="stat"><span class="stat-num">40</span><span class="stat-label">سؤال امتحان</span></div>
     <div class="stat"><span class="stat-num">16</span><span class="stat-label">نوع ريادة</span></div>
     <div class="stat"><span class="stat-num">∞</span><span class="stat-label">نجاح</span></div>
