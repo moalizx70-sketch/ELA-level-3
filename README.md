@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark light">
-<title>مراجعة ريادة الأعمال - L99 🔥</title>
+<title>مراجعة ريادة الأعمال - </title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;700;900&display=swap');
 
@@ -489,7 +489,7 @@
 <body>
 
 <div class="hero">
-  <div class="hero-badge">🔥 L99 MODE — نيلة إن شاء الله</div>
+  <div class="hero-badge">مراجعه  رياده الاعمال</div>
   <h1>مراجعة ريادة الأعمال<br>الشاملة</h1>
   <p>المعهد المصري — أكاديمية الإسكندرية للإدارة والمحاسبة | الفرقة الثالثة</p>
   <div class="stats-row">
