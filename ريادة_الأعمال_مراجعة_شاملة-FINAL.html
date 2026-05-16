@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark light">
+<title>مراجعة ريادة الأعمال - L99 🔥</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;700;900&display=swap');
+
+  :root {
+    --gold: #f5a623;
+    --dark: #0d0d1a;
+    --card: #141428;
+    --border: #2a2a4a;
+    --green: #00d97e;
+    --red: #ff4757;
+    --blue: #3742fa;
+    --purple: #7c4dff;
+    --text: #e8e8f0;
+    --muted: #8888aa;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0d0d1a 0%, #1a0a2e 50%, #0d0d1a 100%);
+    text-align: center;
+    padding: 60px 20px 40px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 2px solid var(--gold);
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(245,166,35,0.15) 0%, transparent 70%);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: #000;
+    font-weight: 900;
+    font-size: 13px;
+    padding: 5px 18px;
+    border-radius: 30px;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+  }
+  .hero h1 {
+    font-family: 'Tajawal', sans-serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900;
+    background: linear-gradient(135deg, #f5a623, #fff 50%, #f5a623);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .hero p { color: var(--muted); font-size: 16px; }
+  .stats-row {
+    display: flex; justify-content: center; gap: 30px; margin-top: 30px; flex-wrap: wrap;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat-num {
+    font-size: 32px; font-weight: 900; color: var(--gold); display: block;
+  }
+  .stat-label { font-size: 12px; color: var(--muted); }
+
+  /* NAV TABS */
+  .tab-nav {
+    display: flex; overflow-x: auto; gap: 8px;
+    padding: 20px 20px 0;
+    border-bottom: 2px solid var(--border);
+    background: var(--dark);
+    position: sticky; top: 0; z-index: 100;
+    scrollbar-width: none;
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex-shrink: 0;
+    padding: 10px 20px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .tab-btn:hover { color: var(--text); border-color: var(--gold); }
+  .tab-btn.active {
+    background: var(--card);
+    color: var(--gold);
+    border-color: var(--gold);
+    border-bottom-color: var(--card);
+  }
+
+  /* CONTENT */
+  .content { padding: 30px 20px; max-width: 900px; margin: 0 auto; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* LECTURE CARD */
+  .lecture-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .lecture-card:hover { border-color: var(--gold); }
+  .lecture-card::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 4px; height: 100%;
+    background: var(--gold);
+    border-radius: 0 16px 16px 0;
+  }
+  .lecture-num {
+    font-size: 11px; font-weight: 700; color: var(--gold);
+    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px;
+  }
+  .lecture-title {
+    font-size: 20px; font-weight: 900; margin-bottom: 18px;
+    color: #fff;
+  }
+
+  /* KEY POINTS */
+  .key-points { list-style: none; }
+  .key-points li {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px; line-height: 1.7;
+  }
+  .key-points li:last-child { border-bottom: none; }
+  .key-points li::before {
+    content: '◆';
+    color: var(--gold);
+    font-size: 10px;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+  /* COMPARISON TABLE - FIXED MOBILE VISIBILITY */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 13px;
+    table-layout: fixed;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .compare-table th {
+    background: #f3e7cf !important;
+    color: #8a5a00 !important;
+    padding: 12px 14px;
+    text-align: center;
+    font-weight: 900;
+    border: 1px solid #d6b06a;
+  }
+
+  .compare-table td {
+    padding: 12px 14px;
+    border: 1px solid #44445f;
+    vertical-align: top;
+    line-height: 1.8;
+    color: #ffffff !important;
+    background: #20203a !important;
+    font-weight: 600;
+  }
+
+  .compare-table tr:nth-child(even) td {
+    background: #262644 !important;
+    color: #ffffff !important;
+  }
+
+  .compare-table tr:hover td {
+    background: #303055 !important;
+  }
+
+
+  /* DEFINITION BOX */
+  .def-box {
+    background: linear-gradient(135deg, rgba(124,77,255,0.1), rgba(55,66,250,0.1));
+    border: 1px solid rgba(124,77,255,0.4);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 14px 0;
+  }
+  .def-label {
+    font-size: 11px; font-weight: 700; color: var(--purple);
+    letter-spacing: 1px; margin-bottom: 6px;
+  }
+  .def-text { font-size: 14px; line-height: 1.7; color: var(--text); }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: rgba(0,217,126,0.08);
+    border: 1px solid rgba(0,217,126,0.3);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .highlight-box .hl-title {
+    color: var(--green); font-weight: 700; margin-bottom: 6px; font-size: 14px;
+  }
+
+  /* WARNING BOX */
+  .warning-box {
+    background: rgba(255,71,87,0.08);
+    border: 1px solid rgba(255,71,87,0.3);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .warning-box .w-title {
+    color: var(--red); font-weight: 700; margin-bottom: 6px;
+  }
+
+  /* TAGS */
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .tag {
+    background: rgba(245,166,35,0.12);
+    border: 1px solid rgba(245,166,35,0.3);
+    color: var(--gold);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px; margin-top: 10px;
+  }
+  .section-icon {
+    width: 40px; height: 40px;
+    background: rgba(245,166,35,0.15);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .section-title { font-size: 22px; font-weight: 900; color: #fff; }
+
+  /* QUIZ SECTION */
+  .quiz-intro {
+    background: linear-gradient(135deg, rgba(245,166,35,0.1), rgba(124,77,255,0.1));
+    border: 1px solid var(--gold);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 28px;
+    text-align: center;
+  }
+  .quiz-intro h2 { font-size: 22px; font-weight: 900; color: var(--gold); margin-bottom: 8px; }
+  .quiz-intro p { color: var(--muted); font-size: 14px; }
+
+  .question-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    transition: all 0.2s;
+  }
+  .question-card.answered-correct { border-color: var(--green); }
+  .question-card.answered-wrong { border-color: var(--red); }
+
+  .q-header {
+    display: flex; align-items: flex-start; gap: 12px; margin-bottom: 18px;
+  }
+  .q-num {
+    background: var(--gold);
+    color: #000;
+    width: 30px; height: 30px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 13px;
+    flex-shrink: 0;
+  }
+  .q-text { font-size: 15px; font-weight: 700; line-height: 1.6; }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option-btn {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    text-align: right;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    transition: all 0.2s;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .option-btn:hover:not(:disabled) {
+    border-color: var(--gold);
+    background: rgba(245,166,35,0.08);
+    color: #fff;
+  }
+  .option-btn.correct {
+    background: rgba(0,217,126,0.15);
+    border-color: var(--green);
+    color: var(--green);
+    font-weight: 700;
+  }
+  .option-btn.wrong {
+    background: rgba(255,71,87,0.1);
+    border-color: var(--red);
+    color: var(--red);
+  }
+  .option-btn:disabled { cursor: not-allowed; }
+  .option-letter {
+    background: var(--border);
+    color: var(--muted);
+    width: 26px; height: 26px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .option-btn.correct .option-letter { background: var(--green); color: #000; }
+  .option-btn.wrong .option-letter { background: var(--red); color: #fff; }
+
+  .explanation {
+    margin-top: 14px;
+    background: rgba(55,66,250,0.08);
+    border: 1px solid rgba(55,66,250,0.3);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #aab4ff;
+    display: none;
+  }
+  .explanation.show { display: block; }
+  .exp-label { color: var(--blue); font-weight: 700; margin-bottom: 4px; }
+
+  /* SCORE */
+  .score-panel {
+    background: var(--card);
+    border: 2px solid var(--gold);
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .score-big { font-size: 60px; font-weight: 900; color: var(--gold); }
+  .score-label { color: var(--muted); font-size: 16px; margin-top: 4px; }
+  .score-bar-wrap {
+    background: var(--border);
+    border-radius: 10px;
+    height: 12px;
+    margin: 16px 0;
+    overflow: hidden;
+  }
+  .score-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), #ff9f43);
+    border-radius: 10px;
+    transition: width 1s ease;
+  }
+
+  /* RESET BTN */
+  .reset-btn {
+    background: var(--gold);
+    color: #000;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 900;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 16px;
+    transition: opacity 0.2s;
+  }
+  .reset-btn:hover { opacity: 0.85; }
+
+  /* FLASHCARDS */
+  .flashcard-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .flashcard {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    min-height: 140px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .flashcard:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .flashcard.flipped { background: rgba(245,166,35,0.08); border-color: var(--gold); }
+  .fc-front { }
+  .fc-back { display: none; }
+  .flashcard.flipped .fc-front { display: none; }
+  .flashcard.flipped .fc-back { display: block; }
+  .fc-term {
+    font-size: 17px; font-weight: 900; color: var(--gold); margin-bottom: 6px;
+  }
+  .fc-hint { font-size: 12px; color: var(--muted); }
+  .fc-def { font-size: 14px; line-height: 1.7; }
+  .fc-tap { position: absolute; bottom: 12px; left: 16px; font-size: 11px; color: var(--muted); }
+
+  /* NUMBERED LIST */
+  .num-list { list-style: none; counter-reset: item; }
+  .num-list li {
+    counter-increment: item;
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px; line-height: 1.7;
+  }
+  .num-list li:last-child { border-bottom: none; }
+  .num-list li::before {
+    content: counter(item);
+    background: var(--gold);
+    color: #000;
+    width: 24px; height: 24px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 12px;
+    flex-shrink: 0; margin-top: 2px;
+  }
+
+  /* TYPE GRID */
+  .type-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; margin-top: 14px; }
+  .type-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    transition: border-color 0.2s;
+  }
+  .type-card:hover { border-color: var(--gold); }
+  .type-name { font-weight: 700; color: var(--gold); margin-bottom: 6px; font-size: 14px; }
+  .type-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* PROGRESS */
+  .progress-tracker {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 16px;
+    flex-wrap: wrap;
+  }
+  .prog-item { flex: 1; min-width: 100px; text-align: center; }
+  .prog-num { font-size: 24px; font-weight: 900; }
+  .prog-label { font-size: 12px; color: var(--muted); }
+
+  @media (max-width: 600px) {
+    .content { padding: 20px 14px; }
+    .lecture-card { padding: 20px 16px; }
+    .compare-table { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">🔥 L99 MODE — نيلة إن شاء الله</div>
+  <h1>مراجعة ريادة الأعمال<br>الشاملة</h1>
+  <p>المعهد المصري — أكاديمية الإسكندرية للإدارة والمحاسبة | الفرقة الثالثة</p>
+  <div class="stats-row">
+    <div class="stat"><span class="stat-num">8</span><span class="stat-label">محاضرات</span></div>
+    <div class="stat"><span class="stat-num">40</span><span class="stat-label">سؤال امتحان</span></div>
+    <div class="stat"><span class="stat-num">16</span><span class="stat-label">نوع ريادة</span></div>
+    <div class="stat"><span class="stat-num">∞</span><span class="stat-label">نجاح</span></div>
+  </div>
+</div>
+
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('summary')">📚 الملخص الشامل</button>
+  <button class="tab-btn" onclick="showTab('quiz')">🎯 أسئلة الامتحان</button>
+  <button class="tab-btn" onclick="showTab('flash')">⚡ بطاقات المراجعة</button>
+  <button class="tab-btn" onclick="showTab('assignment')">📝 التكليف</button>
+</div>
+
+<!-- ===================== SUMMARY TAB ===================== -->
+<div class="content">
+<div id="tab-summary" class="tab-panel active">
+
+  <!-- LECTURE 1 -->
+  <div class="lecture-card">
+    <div class="lecture-num">📖 المحاضرة الأولى</div>
+    <div class="lecture-title">مقدمة في ريادة الأعمال</div>
+
+    <div class="def-box">
+      <div class="def-label">🔑 المفهوم الأساسي</div>
+      <div class="def-text">كلمة <strong>Entrepreneurship</strong> فرنسية الأصل — تعني من يُباشر عملاً تجارياً. تُترجم: مبادرة، ريادة، عمل حر، إنشاء مشروع.</div>
+    </div>
+
+    <p style="font-weight:700; color:var(--gold); margin:14px 0 8px;">3 تعريفات يجب حفظها:</p>
+    <div class="def-box">
+      <div class="def-label">Shane & Venkataraman</div>
+      <div class="def-text">العملية التي يتم من خلالها <strong>اكتشاف وتقييم واستغلال</strong> فرص ابتكار سلع وخدمات مستقبلية.</div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">Schumpeter</div>
+      <div class="def-text">عملية إبداعية تهدف إلى <strong>إحداث تغيير في السوق</strong> من خلال إدخال منتجات جديدة أو طرق إنتاج مبتكرة.</div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">Peter Drucker</div>
+      <div class="def-text"><strong>سلوك ابتكاري منظم</strong> يقوم على البحث المنهجي عن التغيير واستثماره كفرصة لإنشاء قيمة اقتصادية أو اجتماعية.</div>
+    </div>
+
+    <p style="font-weight:700; color:var(--gold); margin:16px 0 8px;">6 خصائص ريادة الأعمال:</p>
+    <ul class="key-points">
+      <li><strong>الابتكار والإبداع</strong> — تقديم أفكار جديدة وحلول غير تقليدية</li>
+      <li><strong>تحمل المخاطرة</strong> — استعداد لتحمل مخاطر مالية وإدارية مع السعي لتقليلها</li>
+      <li><strong>استغلال الفرص</strong> — اكتشاف الفرص غير المستغلة وتحويلها لمشاريع</li>
+      <li><strong>الاستقلالية والمبادرة</strong> — العمل باستقلالية واتخاذ القرارات دون رقابة خارجية</li>
+      <li><strong>خلق القيمة المضافة</strong> — إيجاد قيمة اقتصادية أو اجتماعية جديدة</li>
+      <li><strong>المرونة والتكيف</strong> — الاستجابة للتغيرات البيئية والتكنولوجية</li>
+    </ul>
+
+    <p style="font-weight:700; color:var(--gold); margin:16px 0 8px;">الفرق بين المشروعات الريادية والمنشآت الصغيرة:</p>
+    <table class="compare-table">
+      <tr><th>المنشآت الصغيرة</th><th>المشروعات الريادية</th></tr>
+      <tr><td>تهدف لتوليد دخل مستمر فقط</td><td>تهدف لبناء ثروة كبيرة دائمة</td></tr>
+      <tr><td>تبني ثروتها على مدى حياة صاحبها</td><td>تحقق ثروة في 5-10 سنوات</td></tr>
+      <tr><td>تتسم بالأمان والروتين</td><td>مخاطرة عالية = ثمن الثراء</td></tr>
+      <tr><td>لا تتطلب ابتكاراً حقيقياً</td><td>تعتمد على الابتكار والإبداع الكامل</td></tr>
+    </table>
+
+    <div class="highlight-box">
+      <div class="hl-title">✅ أهمية ريادة الأعمال (4 نقاط)</div>
+      خلق فرص العمل وتقليل البطالة | تحفيز الابتكار | زيادة النمو الاقتصادي ورفع الناتج المحلي | تطوير المجتمعات وحل المشاكل المحلية
+    </div>
+  </div>
+
+  <!-- LECTURE 2 -->
+  <div class="lecture-card">
+    <div class="lecture-num">📖 المحاضرة الثانية</div>
+    <div class="lecture-title">أنواع ريادة الأعمال (16 نوع)</div>
+    <div class="type-grid">
+      <div class="type-card"><div class="type-name">🔨 الحرفية (Artisan)</div><div class="type-desc">توظيف المهارات الفنية لابتكار منتجات يدوية فريدة — فخار، مجوهرات، مشروبات حرفية</div></div>
+      <div class="type-card"><div class="type-name">🏢 المؤسسية (Corporate)</div><div class="type-desc">أنشطة ريادية داخل شركة كبيرة قائمة — تشجع الموظفين على التفكير كرواد أعمال</div></div>
+      <div class="type-card"><div class="type-name">🎨 الإبداعية (Creative)</div><div class="type-desc">تحويل الموهبة الفنية لمشروع مربح — موضة، تصميم، أفلام، موسيقى، محتوى رقمي</div></div>
+      <div class="type-card"><div class="type-name">🏪 الصغيرة (Small Business)</div><div class="type-desc">الأكثر انتشاراً — هدفها دخل ثابت — محل حلاقة، مطعم صغير، مشروعات عائلية</div></div>
+      <div class="type-card"><div class="type-name">🚀 الناشئة القابلة للتوسع</div><div class="type-desc">مصممة للنمو السريع — تعتمد على Venture Capital — تهدف لتغيير السوق كله</div></div>
+      <div class="type-card"><div class="type-name">❤️ الاجتماعية (Social)</div><div class="type-desc">تمزج الأهداف الاقتصادية بالأثر الاجتماعي — الربح وسيلة لا هدف — إعادة تدوير، تمكين المرأة</div></div>
+      <div class="type-card"><div class="type-name">💡 الابتكارية (Innovative)</div><div class="type-desc">فكرة جديدة تماماً — عالية المخاطرة وعالية العائد — قد تغير شكل السوق</div></div>
+      <div class="type-card"><div class="type-name">🔄 التقليدية المقلدة (Imitative)</div><div class="type-desc">محاكاة نموذج ناجح وتكييفه — مخاطرة أقل — شائعة في الأسواق الناشئة</div></div>
+      <div class="type-card"><div class="type-name">💪 الطموحة (Hustler)</div><div class="type-desc">تعتمد على الجهد والمثابرة — رأس مال قليل — عمل حر، تجارة إلكترونية سريعة</div></div>
+      <div class="type-card"><div class="type-name">🔬 البحثية (Researcher)</div><div class="type-desc">تحويل الأبحاث العلمية لمشروع تجاري — تقليل المخاطر بالتحليل العميق للبيانات</div></div>
+      <div class="type-card"><div class="type-name">🛒 الشراء (Buyer)</div><div class="type-desc">شراء مشروع قائم وتطويره — مخاطرة أقل لأن المشروع لديه عملاء وإيرادات وسمعة</div></div>
+      <div class="type-card"><div class="type-name">💻 التكنولوجية (Technopreneur)</div><div class="type-desc">تجمع التكنولوجيا وريادة الأعمال — ذكاء اصطناعي، روبوتات، بلوك تشين</div></div>
+      <div class="type-card"><div class="type-name">🌴 نمط الحياة (Lifestyle)</div><div class="type-desc">الهدف أسلوب حياة لا التوسع — قائمة على شغف شخصي — سفر، تصوير، تدريب حر</div></div>
+      <div class="type-card"><div class="type-name">🔁 التسلسلية (Serial)</div><div class="type-desc">رائد يؤسس أكثر من مشروع، يبيع ويبدأ آخر — خبرة عالية في التأسيس</div></div>
+      <div class="type-card"><div class="type-name">🌍 الدولية (International)</div><div class="type-desc">التوسع خارج الدولة — تصدير وفروع خارجية — يتطلب فهم ثقافات مختلفة</div></div>
+      <div class="type-card"><div class="type-name">🌱 المستدامة (Sustainable)</div><div class="type-desc">مراعاة احتياجات الحاضر دون الإضرار بالأجيال القادمة — توازن بيئي واجتماعي</div></div>
+    </div>
+
+    <p style="font-weight:700; color:var(--gold); margin:18px 0 8px;">صفات رائد الأعمال الناجح:</p>
+    <div class="tag-list">
+      <span class="tag">الرؤية والإبداع</span><span class="tag">التحفيز الذاتي</span><span class="tag">الثقة بالنفس</span>
+      <span class="tag">تحمل المخاطرة المحسوبة</span><span class="tag">تأسيس فرق عمل قوية</span><span class="tag">المرونة والتكيف</span>
+      <span class="tag">الإصرار والمثابرة</span><span class="tag">مهارات القيادة</span><span class="tag">التواصل الفعال</span>
+      <span class="tag">النزاهة الأخلاقية</span><span class="tag">الإدارة المالية</span><span class="tag">التخطيط طويل الأمد</span>
+    </div>
+
+    <div class="highlight-box" style="margin-top:14px;">
+      <div class="hl-title">✅ الخصائص الشخصية لرائد الأعمال (6)</div>
+      الحاجة إلى الإنجاز | موقع التحكم (Locus of Control) | الميل للمخاطرة | الموقف الإيجابي | الدافعية | الصمود والمثابرة
+    </div>
+  </div>
+
+  <!-- LECTURE 3 -->
+  <div class="lecture-card">
+    <div class="lecture-num">📖 المحاضرة الثالثة</div>
+    <div class="lecture-title">مراحل حياة المشروع الريادي</div>
+    <ul class="key-points">
+      <li><strong>1 — مرحلة الفكرة (Idea Stage):</strong> توليد فكرة مبتكرة، تحديد المشكلة والسوق المستهدف، دراسة أولية للجدوى، اكتشاف فجوة السوق</li>
+      <li><strong>2 — مرحلة التحقق (Validation Stage):</strong> اختبار الفكرة قبل ضخ استثمارات — أدوات: اكتشاف العملاء، استبيانات، Prototype، MVP</li>
+      <li><strong>3 — مرحلة الاحتضان (Incubation):</strong> يدخل المشروع حاضنة أعمال — تقدم: إرشاد، تدريب، مساحة عمل، networking، تمويل أولي</li>
+      <li><strong>4 — مرحلة التسريع (Acceleration):</strong> عبر مسرعة أعمال — مدة قصيرة 3-6 أشهر — تركيز على النمو السريع والمستثمرين</li>
+      <li><strong>5 — مرحلة النمو والتوسع:</strong> زيادة الحصة السوقية، دخول أسواق جديدة، تطوير منتجات إضافية</li>
+    </ul>
+
+    <p style="font-weight:700; color:var(--gold); margin:16px 0 8px;">الفرق بين الحاضنة والمسرعة:</p>
+    <table class="compare-table">
+      <tr><th>الحاضنة (Incubator)</th><th>المسرعة (Accelerator)</th></tr>
+      <tr><td>للمشاريع في المراحل المبكرة</td><td>المشاريع لديها منتج جاهز</td></tr>
+      <tr><td>تركيز على البناء والتأسيس</td><td>تركيز على النمو السريع</td></tr>
+      <tr><td>مدة أطول</td><td>مدة قصيرة 3-6 أشهر</td></tr>
+      <tr><td>دعم إرشادي في الأساس</td><td>تمويل + تجهيز للمستثمرين</td></tr>
+    </table>
+  </div>
+
+  <!-- LECTURE 4 -->
+  <div class="lecture-card">
+    <div class="lecture-num">📖 المحاضرة الرابعة</div>
+    <div class="lecture-title">الإبداع والابتكار — نموذج العملية</div>
+
+    <table class="compare-table">
+      <tr><th>الإبداع (Creativity)</th><th>الابتكار (Innovation)</th></tr>
+      <tr><td>توليد فكرة مبتكرة</td><td>تحويل الفكرة إلى قيمة اقتصادية/اجتماعية</td></tr>
+      <tr><td>قيمة فكرية</td><td>قيمة فعلية ملموسة</td></tr>
+      <tr><td>المرحلة الأولى</td><td>المرحلة التنفيذية</td></tr>
+    </table>
+
+    <p style="font-weight:700; color:var(--gold); margin:16px 0 8px;">نموذج العملية — 4 مراحل:</p>
+    <ul class="num-list">
+      <li><strong>إدراك الفرصة:</strong> توليد الفكرة ← تحديد الفرصة ← تطويرها ← تقييمها ← تقييم الفريق</li>
+      <li><strong>إيجاد الموارد:</strong> مالية + بشرية + تكنولوجية + تنظيمية</li>
+      <li><strong>تطوير المشروع (Venture Development):</strong> الانتقال من النظرية للتنفيذ — يسودها الغموض في البداية — إدارة المخاطر بنظام Stage-Gate</li>
+      <li><strong>تحقيق القيمة (Value Creation & Capture):</strong> تجارياً: حماية الملكية الفكرية + نموذج العمل. اجتماعياً: تعظيم الأثر الاجتماعي + شراكات</li>
+    </ul>
+
+    <p style="font-weight:700; color:var(--gold); margin:16px 0 8px;">3 أنواع حاضنات الأعمال:</p>
+    <ul class="key-points">
+      <li><strong>متعددة الاستخدامات:</strong> تدعم النمو الصناعي والاقتصادي بشكل عام لمختلف القطاعات</li>
+      <li><strong>حاضنات التنمية الاقتصادية:</strong> تركز على خلق فرص عمل وتحفيز الاقتصاد المحلي</li>
+      <li><strong>حاضنات التكنولوجيا:</strong> تدعم الشركات التقنية وتوفر المعرفة التقنية</li>
+    </ul>
+  </div>
+
+  <!-- LECTURE 5 & 6 -->
+  <div class="lecture-card">
+    <div class="lecture-num">📖 المحاضرتان الخامسة والسادسة</div>
+    <div class="lecture-title">دراسة الجدوى وخطة العمل</div>
+
+    <div class="def-box">
+      <div class="def-label">📌 تعريف دراسة الجدوى الأولية</div>
+      <div class="def-text">تقييم مبدئي وسريع لفكرة المشروع يهدف إلى تحديد مدى قابليته للتنفيذ <strong>قبل</strong> استثمار وقت أو موارد مالية كبيرة.</div>
+    </div>
+
+    <p style="font-weight:700; color:var(--gold); margin:14px 0 8px;">أهم جوانب دراسة الجدوى:</p>
+    <div class="tag-list">
+      <span class="tag">المالية</span><span class="tag">الفنية</span><span class="tag">السوقية/التسويقية</span><span class="tag">القانونية</span>
+    </div>
+
+    <p style="font-weight:700; color:var(--gold); margin:16px 0 8px;">11 أهمية لدراسة الجدوى:</p>
+    <ul class="num-list">
+      <li>تحديد نقاط القوة والضعف والفرص والتهديدات (SWOT)</li>
+      <li>تزويد الإدارة بالمعلومات لاتخاذ قرارات استثمارية سليمة</li>
+      <li>تطبيق نطاق البدائل المتاحة واختيار أفضلها</li>
+      <li>اكتشاف فرص جديدة وتحديد المخاطر ووضع استراتيجيات</li>
+      <li>زيادة احتمالية نجاح المشروع وتقليل احتمالات الفشل</li>
+      <li>توفير قاعدة معلومات موثوقة للبنوك والمستثمرين</li>
+      <li>تقديم أدلة تحليلية توضح قدرة المشروع على تحقيق العائد</li>
+      <li>توثيق الافتراضات والبيانات لتقليل الأخطاء</li>
+      <li>جمع بيانات من مصادر أولية (مقابلات، استبيانات)</li>
+      <li>جمع بيانات من مصادر ثانوية (تقارير حكومية، إحصاءات)</li>
+      <li>تمثل خطوة أساسية في ترشيد الموارد ودعم القرارات</li>
+    </ul>
+
+    <div class="highlight-box" style="margin-top:14px;">
+      <div class="hl-title">📋 مرحلتا دراسة الجدوى (Napkin Plan)</div>
+      <strong>المرحلة الأولى — تمهيدية:</strong> مسح سريع للتحقق من: توافر الطلب | قوة المنافسين | التراخيص والتمويل | التكاليف الأولية. (لا تشترط دقة مبالغة)<br><br>
+      <strong>المرحلة الثانية — تفصيلية:</strong> تُجرى إذا أثبتت الأولى أن الجدوى تستدعي ذلك
+    </div>
+
+    <p style="font-weight:700; color:var(--gold); margin:16px 0 8px;">متى نحتاج دراسة الجدوى؟</p>
+    <ul class="key-points">
+      <li>عند الحيرة بين عدة مشاريع</li>
+      <li>للحصول على تمويل</li>
+      <li>تحديد متى أبدأ (الموسم الصحيح)</li>
+      <li>تنظيم الأفكار وبناء نموذج العمل</li>
+      <li>جدولة المشروع وترتيب تكاليف الموردين</li>
+    </ul>
+
+    <p style="font-weight:700; color:var(--gold); margin:16px 0 8px;">مكونات خطة العمل (9 مكونات):</p>
+    <ul class="num-list">
+      <li>وصف السلعة أو الخدمة</li>
+      <li>تحليل السوق والفرص المتاحة</li>
+      <li>تحديد العملاء المستهدفين</li>
+      <li>تحليل المنافسين وعيوب الدخول للسوق</li>
+      <li>خبرة وكفاءة فريق الإدارة</li>
+      <li>استراتيجيات التسعير والتسويق والتوزيع</li>
+      <li>تحديد المخاطر وخطط التعامل معها</li>
+      <li>التقديرات المالية (تدفق نقدي، نقطة التعادل)</li>
+      <li>تحديد متطلبات التمويل والموارد</li>
+    </ul>
+
+    <p style="font-weight:700; color:var(--gold); margin:14px 0 8px;">أساليب التقييم المالي:</p>
+    <div class="tag-list">
+      <span class="tag">فترة الاسترداد</span>
+      <span class="tag">العائد على الاستثمار (ROI)</span>
+      <span class="tag">القيمة الحالية الصافية (NPV)</span>
+      <span class="tag">التدفقات النقدية المخصومة (DCF)</span>
+    </div>
+
+    <table class="compare-table" style="margin-top:16px;">
+      <tr><th>دراسة الجدوى</th><th>خطة العمل</th></tr>
+      <tr><td>تُجرى قبل بدء المشروع</td><td>تُعد بعد التأكد من الجدوى</td></tr>
+      <tr><td>تحلل إمكانية تنفيذ الفكرة</td><td>تحدد كيفية التنفيذ والإدارة</td></tr>
+      <tr><td>نتيجتها: الاستمرار أو التوقف</td><td>تُستخدم لإقناع المستثمرين</td></tr>
+      <tr><td>أقل تفصيلاً — المرحلة الأولى</td><td>تفصيلية وشاملة — المرحلة الثانية</td></tr>
+    </table>
+  </div>
+
+  <!-- LECTURE 7 -->
+  <div class="lecture-card">
+    <div class="lecture-num">📖 المحاضرة السابعة</div>
+    <div class="lecture-title">تطوير المنتجات الجديدة — منهجية كوبر</div>
+
+    <ul class="num-list">
+      <li><strong>توليد الأفكار (Concept Generation):</strong> جذب السوق للابتكارات التدريجية | دفع التكنولوجيا للاحتياجات غير المدركة. العملاء يشترون الفوائد لا التكنولوجيا</li>
+      <li><strong>اختيار المشروع (Project Selection):</strong> تكلفتان عند سوء الاختيار: التكلفة الفعلية (إنفاق على مشاريع ضعيفة) + تكلفة الفرصة البديلة (فقدان المشاريع الواعدة)</li>
+      <li><strong>تطوير المنتج (Product Development):</strong> تحويل المفهوم المختار لمنتج جاهز — تعاون R&D + تصميم + هندسة + تسويق</li>
+      <li><strong>تسويق المنتج ومراجعته:</strong> Alpha (اختبار داخلي) ← Beta (عينة من المستخدمين) ← Gamma (اختبار نهائي قبل الإطلاق)</li>
+    </ul>
+
+    <table class="compare-table" style="margin-top:16px;">
+      <tr><th>مشاريع منخفضة الجِدة (Low Innovation)</th><th>مشاريع عالية الجِدة (High Innovation)</th></tr>
+      <tr><td>تحسينات بسيطة على موجود</td><td>منتجات جديدة تماماً غير مألوفة</td></tr>
+      <tr><td>تُقاس بمعايير كمية: مبيعات، حصة سوقية</td><td>تُقاس بالتأثير الاستراتيجي والتعلم</td></tr>
+      <tr><td>سهلة التقييم والتنبؤ</td><td>تفتح أسواقاً وتقوي مكانة الشركة</td></tr>
+    </table>
+  </div>
+
+  <!-- LECTURE 8 -->
+  <div class="lecture-card">
+    <div class="lecture-num">📖 المحاضرة الثامنة</div>
+    <div class="lecture-title">عوامل النجاح وتطوير الخدمات</div>
+
+    <p style="font-weight:700; color:var(--gold); margin:0 0 12px;">8 عوامل نجاح المنتجات الجديدة:</p>
+    <ul class="num-list">
+      <li><strong>الميزة التنافسية الجوهرية:</strong> تقديم قيمة مضافة حقيقية وتفوق في نسبة الأداء/التكلفة</li>
+      <li><strong>الاستخبارات السوقية:</strong> التحضير المسبق ودراسات السوق التفصيلية والتحليل التجاري</li>
+      <li><strong>تعريف واضح للمنتج:</strong> تحديد الأسواق المستهدفة والفوائد المرجوة قبل بدء التطوير</li>
+      <li><strong>الإدارة الاستباقية للمخاطر:</strong> رصد التحديات التقنية والسوقية وتضمين خطط الطوارئ</li>
+      <li><strong>الهيكلة التنظيمية المرنة:</strong> فرق عمل Cross-functional من الفكرة للإطلاق</li>
+      <li><strong>كفاية الموارد:</strong> الدعم المالي والمهارات البشرية الكافية</li>
+      <li><strong>كفاءة التنفيذ التقني والتسويقي:</strong> الدقة في الأنشطة الإنتاجية والاختبارات</li>
+      <li><strong>دعم الإدارة العليا:</strong> توفير بيئة محفزة للابتكار والدعم المؤسسي</li>
+    </ul>
+
+    <p style="font-weight:700; color:var(--gold); margin:18px 0 12px;">6 اختلافات جوهرية بين السلع والخدمات:</p>
+    <ul class="num-list">
+      <li><strong>الملموسية (Tangibility):</strong> السلع ملموسة — الخدمات غالباً غير ملموسة رغم أن نتائجها مرئية</li>
+      <li><strong>توقعات الجودة:</strong> العملاء يقيّمون الخدمة على أساس الفارق بين التوقعات والأداء الفعلي (ملموسيات، استجابة، كفاءة، ضمان، تعاطف)</li>
+      <li><strong>التزامن بين الإنتاج والاستهلاك:</strong> الخدمات تُنتج وتُستهلك في نفس الوقت — تحديات في ضبط الجودة</li>
+      <li><strong>التخزين (Perishability):</strong> الخدمات لا تُخزن — الطاقة غير المستغلة (مقاعد شاغرة) = خسارة غير مستردة</li>
+      <li><strong>التواصل مع العملاء:</strong> كثافة التفاعل تتباين حسب الخدمة (الصحة = تفاعل مرتفع)</li>
+      <li><strong>أهمية الموقع:</strong> موقع تقديم الخدمة أهم من موقع الإنتاج (مطاعم، متاجر تجزئة)</li>
+    </ul>
+  </div>
+
+  <div class="warning-box">
+    <div class="w-title">🔑 تعريفات يجب حفظها للامتحان</div>
+    <strong>MVP</strong> = المنتج الأولي القابل للتطبيق لاختبار السوق قبل الاستثمار الكامل<br>
+    <strong>Venture Capital</strong> = رأس المال المخاطر الذي تعتمد عليه الشركات الناشئة القابلة للتوسع<br>
+    <strong>Stage-Gate</strong> = نظام بوابات لتقييم المشروع عند مراحل محددة (استمرار أو إيقاف)<br>
+    <strong>Perishability</strong> = عدم قابلية الخدمات للتخزين — الطاقة غير المستغلة = خسارة<br>
+    <strong>Napkin Plan</strong> = خطة الورقة الواحدة — المرحلة التمهيدية لدراسة الجدوى
+  </div>
+
+</div>
+
+<!-- ===================== QUIZ TAB ===================== -->
+<div id="tab-quiz" class="tab-panel">
+  <div class="quiz-intro">
+    <h2>🎯 40 سؤال امتحان</h2>
+    <p>من محاضرات ريادة الأعمال — اختر الإجابة الصحيحة وشوف الشرح</p>
+  </div>
+
+  <div class="score-panel" id="scorePanel" style="display:none;">
+    <div class="score-big" id="scoreText">0/40</div>
+    <div class="score-label">درجتك في المراجعة</div>
+    <div class="score-bar-wrap"><div class="score-bar" id="scoreBar" style="width:0%"></div></div>
+    <button class="reset-btn" onclick="resetQuiz()">🔄 ابدأ من جديد</button>
+  </div>
+
+  <div id="quizContainer"></div>
+</div>
+
+<!-- ===================== FLASHCARDS TAB ===================== -->
+<div id="tab-flash" class="tab-panel">
+  <div class="quiz-intro">
+    <h2>⚡ بطاقات المراجعة السريعة</h2>
+    <p>اضغط على البطاقة لتشوف التعريف — مثالية للمراجعة الأخيرة قبل الامتحان</p>
+  </div>
+  <div class="flashcard-grid" id="flashGrid"></div>
+</div>
+
+<!-- ===================== ASSIGNMENT TAB ===================== -->
+<div id="tab-assignment" class="tab-panel">
+  <div class="lecture-card">
+    <div class="lecture-num">📝 التكليف المطلوب</div>
+    <div class="lecture-title">إجابة تكليف ريادة الأعمال</div>
+
+    <div class="warning-box">
+      <div class="w-title">⚠️ التكليف المطلوب</div>
+      السؤال 1: ما مواصفات رائد الأعمال؟<br>
+      السؤال 2: اكتب 5 أنواع من ريادة الأعمال مع شرح بسيط
+    </div>
+
+    <p style="font-weight:700; color:var(--gold); margin:20px 0 12px;">📌 إجابة السؤال الأول: مواصفات رائد الأعمال</p>
+    <p style="font-size:14px; line-height:1.8; margin-bottom:12px;">يتميز رائد الأعمال الناجح بمجموعة من الصفات والخصائص الجوهرية التي تُمكّنه من تحقيق النجاح:</p>
+    <ul class="num-list">
+      <li><strong>الرؤية والإبداع:</strong> القدرة على استشراف المستقبل وتحويل الأفكار إلى مشاريع مبتكرة</li>
+      <li><strong>التحفيز الذاتي وروح المبادرة:</strong> الدافعية الداخلية للعمل دون انتظار توجيه خارجي</li>
+      <li><strong>الثقة بالنفس:</strong> الإيمان بالقدرة على النجاح حتى في مواجهة التحديات</li>
+      <li><strong>تحمل المخاطرة المحسوبة:</strong> قبول المخاطر المدروسة مع السعي لتقليلها</li>
+      <li><strong>تحويل الأفكار لمشاريع منافسة:</strong> مهارة ترجمة الأفكار الإبداعية إلى واقع تجاري</li>
+      <li><strong>تأسيس فرق عمل قوية:</strong> اختيار الكفاءات المناسبة وبناء فريق متكامل</li>
+      <li><strong>المرونة والتكيف:</strong> القدرة على التعامل مع التغيرات والتحولات السوقية</li>
+      <li><strong>الإصرار والمثابرة:</strong> عدم الاستسلام أمام الإخفاقات والاستمرار نحو الهدف</li>
+      <li><strong>مهارات القيادة:</strong> التأثير في الآخرين وتوجيههم نحو الأهداف المشتركة</li>
+      <li><strong>التواصل الفعال:</strong> القدرة على إيصال الأفكار والتفاوض مع المستثمرين والشركاء</li>
+      <li><strong>النزاهة والالتزام الأخلاقي:</strong> الصدق والشفافية في التعاملات التجارية</li>
+      <li><strong>الإدارة المالية:</strong> فهم التدفقات النقدية والتخطيط المالي السليم</li>
+    </ul>
+
+    <p style="font-weight:700; color:var(--gold); margin:24px 0 12px;">📌 إجابة السؤال الثاني: 5 أنواع من ريادة الأعمال</p>
+
+    <div class="def-box">
+      <div class="def-label">النوع الأول: ريادة الأعمال الابتكارية (Innovative Entrepreneurship)</div>
+      <div class="def-text">تعتمد على تقديم فكرة جديدة تماماً لم تُطرح من قبل في السوق. تتسم بالمخاطرة العالية والعائد العالي، وقد تُحدث ثورة في شكل السوق بالكامل. مثال: مؤسسو شركة Apple الذين قدّموا مفهوم الحاسوب الشخصي.</div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">النوع الثاني: ريادة الشركات الناشئة القابلة للتوسع (Scalable Startup)</div>
+      <div class="def-text">مشاريع مُصمَّمة للنمو السريع والتوسع الكبير، تعتمد على رأس المال المخاطر (Venture Capital). هدفها تغيير السوق أو الصناعة بالكامل. مثال: شركات التكنولوجيا الكبرى التي بدأت صغيرة وانتشرت عالمياً.</div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">النوع الثالث: ريادة الأعمال الاجتماعية (Social Entrepreneurship)</div>
+      <div class="def-text">تجمع بين الأهداف الاقتصادية والأثر الاجتماعي. الربح هنا وسيلة لتحقيق الاستدامة وليس الغاية الأولى. تعمل على حل مشكلات مجتمعية. مثال: مشاريع إعادة التدوير وتمكين المرأة والتعليم المجتمعي.</div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">النوع الرابع: ريادة الأعمال المؤسسية (Corporate Entrepreneurship)</div>
+      <div class="def-text">أنشطة ريادية تُمارَس داخل شركة كبيرة قائمة بالفعل، حيث تُشجّع الشركة موظفيها على التفكير والتصرف كرواد أعمال. تستخدم الموارد الداخلية لتطوير منتجات وخدمات وعمليات جديدة.</div>
+    </div>
+    <div class="def-box">
+      <div class="def-label">النوع الخامس: ريادة الأعمال التكنولوجية (Technopreneur)</div>
+      <div class="def-text">تجمع بين التكنولوجيا المتقدمة وريادة الأعمال، وتعتمد على الابتكار التقني باستخدام الذكاء الاصطناعي والروبوتات والبلوك تشين. شائعة في مجالات البرمجيات وتطبيقات الجوال والحلول الرقمية.</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end content -->
+
+<script>
+// ============ QUIZ DATA ============
+const questions = [
+  { q:"من صاحب تعريف: 'العملية التي يتم من خلالها اكتشاف وتقييم واستغلال فرص ابتكار سلع وخدمات مستقبلية'؟", opts:["Schumpeter","Shane & Venkataraman","Peter Drucker","Max Weber"], ans:1, exp:"Shane & Venkataraman (2000) عرّفا ريادة الأعمال بأنها عملية الاكتشاف والتقييم والاستغلال للفرص." },
+  { q:"من صاحب تعريف: 'سلوك ابتكاري منظم يقوم على البحث المنهجي عن التغيير واستثماره'؟", opts:["Schumpeter","Shane & Venkataraman","Peter Drucker","Adam Smith"], ans:2, exp:"Peter Drucker عرّف ريادة الأعمال بأنها سلوك ابتكاري منظم يبحث عن التغيير ويستثمره كفرصة." },
+  { q:"ما معنى كلمة Entrepreneurship في الأصل؟", opts:["كلمة إنجليزية","كلمة فرنسية","كلمة ألمانية","كلمة لاتينية"], ans:1, exp:"Entrepreneurship كلمة فرنسية الأصل تعني الشخص الذي يُباشر عملاً تجارياً." },
+  { q:"كم عدد أنواع ريادة الأعمال المذكورة في المنهج؟", opts:["10 أنواع","12 نوعاً","16 نوعاً","20 نوعاً"], ans:2, exp:"يتضمن المنهج 16 نوعاً من ريادة الأعمال من الحرفية إلى المستدامة." },
+  { q:"أي نوع من ريادة الأعمال يعتمد على Venture Capital بشكل أساسي؟", opts:["الريادة الحرفية","الريادة الاجتماعية","الشركات الناشئة القابلة للتوسع","الريادة التقليدية"], ans:2, exp:"الشركات الناشئة القابلة للتوسع (Scalable Startup) تعتمد على رأس المال المخاطر (Venture Capital) لتمويل نموها السريع." },
+  { q:"ما الفرق الجوهري الأول بين المشروعات الريادية والمنشآت الصغيرة؟", opts:["حجم الشركة","مقدار إيجاد الثروة","عدد الموظفين","الموقع الجغرافي"], ans:1, exp:"الفرق الأول هو مقدار الثروة: المنشآت الصغيرة تهدف لدخل مستمر، بينما المشروعات الريادية تهدف لبناء ثروة كبيرة دائمة." },
+  { q:"ما الأداة التي تُستخدم في مرحلة التحقق من الفكرة (Validation Stage)؟", opts:["SWOT Analysis","MVP (Minimum Viable Product)","NPV","ROI"], ans:1, exp:"MVP (المنتج الأولي القابل للتطبيق) هو الأداة الرئيسية في مرحلة التحقق لاختبار السوق قبل الاستثمار الكامل." },
+  { q:"ما الفرق الرئيسي بين الحاضنة والمسرعة من حيث المدة؟", opts:["الحاضنة أقصر","المسرعة أطول","المسرعة أقصر (3-6 أشهر)","لا فرق في المدة"], ans:2, exp:"المسرعة مدتها قصيرة جداً (3-6 أشهر) وتركز على النمو السريع، بينما الحاضنة مدتها أطول وتركز على البناء الأساسي." },
+  { q:"ما تعريف الابتكار (Innovation) حسب المنهج؟", opts:["توليد فكرة مبتكرة","تحويل الفكرة إلى قيمة اقتصادية/اجتماعية قابلة للتطبيق","البحث عن الفرص في السوق","الإدارة الفعّالة للموارد"], ans:1, exp:"الابتكار هو تحويل الفكرة إلى قيمة اقتصادية أو اجتماعية قابلة للتطبيق. أما توليد الفكرة فهو الإبداع (Creativity)." },
+  { q:"ما مرحلة الاحتضان الصحيحة لمشروع لديه منتج جاهز ويريد النمو السريع؟", opts:["الحاضنة (Incubator)","المسرعة (Accelerator)","مرحلة الفكرة","مرحلة التحقق"], ans:1, exp:"المسرعة (Accelerator) مخصصة للمشاريع التي لديها منتج جاهز وتريد التركيز على النمو السريع والتجهيز للمستثمرين." },
+  { q:"ما الغرض الأساسي من دراسة الجدوى الأولية؟", opts:["الحصول على ترخيص","تحديد مدى قابلية المشروع للتنفيذ قبل الاستثمار","إقناع المستثمرين بالتفصيل","تعيين الموظفين"], ans:1, exp:"دراسة الجدوى الأولية تهدف إلى تقييم مدى قابلية المشروع للتنفيذ قبل استثمار وقت أو موارد مالية كبيرة." },
+  { q:"ما نتيجة دراسة الجدوى الأولية؟", opts:["خطة تسويقية","قرار الاستمرار أو التوقف","عقود مع موردين","تقرير سنوي"], ans:1, exp:"نتيجة دراسة الجدوى هي قرار: هل نستمر في المشروع أم نتوقف؟ هل نُعدّل الفكرة أم نتخلى عنها؟" },
+  { q:"ما المرحلة الأولى في نموذج تطوير المنتجات (منهجية كوبر)؟", opts:["تطوير المنتج","اختيار المشروع","توليد الأفكار","تسويق المنتج"], ans:2, exp:"المرحلة الأولى في منهجية كوبر هي توليد الأفكار (Concept Generation) التي تتضمن استراتيجيتي جذب السوق ودفع التكنولوجيا." },
+  { q:"ما اختبار Beta في تطوير المنتجات؟", opts:["اختبار داخلي فقط","اختبار مع عينة من المستخدمين","اختبار نهائي قبل الإطلاق","اختبار مالي"], ans:1, exp:"Beta هو اختبار مع عينة من المستخدمين الحقيقيين لجمع ملاحظاتهم قبل الإطلاق الكامل. Alpha داخلي وGamma نهائي." },
+  { q:"كم عدد عوامل نجاح المنتجات الجديدة المذكورة في المحاضرة الثامنة؟", opts:["5 عوامل","6 عوامل","8 عوامل","10 عوامل"], ans:2, exp:"8 عوامل نجاح: الميزة التنافسية، الاستخبارات السوقية، تعريف المنتج، إدارة المخاطر، الهيكل المرن، الموارد، التنفيذ الكفء، دعم الإدارة." },
+  { q:"ما خاصية Perishability في الخدمات؟", opts:["تميّز الخدمات بالجودة العالية","عدم قابلية الخدمات للتخزين","تميّز الخدمات بالملموسية","سرعة تقديم الخدمات"], ans:1, exp:"Perishability تعني عدم قابلية الخدمات للتخزين. المقاعد الشاغرة في الطائرة مثلاً = خسارة غير مستردة." },
+  { q:"ما الفرق بين الإبداع (Creativity) والابتكار (Innovation)؟", opts:["لا فرق بينهما","الإبداع توليد فكرة والابتكار تحويلها لقيمة","الابتكار أول من الإبداع","الإبداع للفنانين فقط"], ans:1, exp:"الإبداع = توليد فكرة مبتكرة (قيمة فكرية). الابتكار = تحويل تلك الفكرة إلى قيمة اقتصادية أو اجتماعية قابلة للتطبيق." },
+  { q:"ما Napkin Plan في دراسة الجدوى؟", opts:["خطة العمل التفصيلية","المرحلة التمهيدية لدراسة الجدوى (الورقة الواحدة)","عقد مع المستثمر","تقرير مالي"], ans:1, exp:"Napkin Plan هي المرحلة التمهيدية لدراسة الجدوى — مسح سريع للتحقق من توافر الطلب وقوة المنافسين والتكاليف الأولية." },
+  { q:"ما عدد مكونات خطة العمل (Business Plan) حسب المنهج؟", opts:["5 مكونات","7 مكونات","9 مكونات","12 مكوناً"], ans:2, exp:"خطة العمل تتكون من 9 مكونات أساسية تشمل وصف السلعة، تحليل السوق، العملاء، المنافسين، فريق الإدارة، التسعير، المخاطر، التقديرات المالية، التمويل." },
+  { q:"ما الريادة التسلسلية (Serial Entrepreneurship)؟", opts:["ريادة في دول متعددة","رائد يؤسس أكثر من مشروع ويبيع ويبدأ آخر","ريادة في سلسلة منافذ بيع","ريادة في قطاع واحد فقط"], ans:1, exp:"الريادة التسلسلية هي أن يؤسس رائد الأعمال مشروعاً، يبنيه، يبيعه، ثم يبدأ مشروعاً جديداً. يمتلك خبرة عالية في التأسيس." },
+  { q:"ما أهم خاصية تميز مرحلة الاحتضان (Incubation Stage)؟", opts:["الدخول للبورصة","الانضمام لحاضنة أعمال تقدم إرشاداً وتدريباً وتمويلاً أولياً","البدء في التصدير","توسيع فروع المشروع"], ans:1, exp:"في مرحلة الاحتضان يدخل المشروع حاضنة أعمال تقدم: إرشاد، تدريب، مساحة عمل، networking، وتمويل أولي." },
+  { q:"ما نظام Stage-Gate في إدارة مشاريع الابتكار؟", opts:["نظام لتقييم الموظفين","نظام بوابات لتقييم المشروع عند مراحل محددة واتخاذ قرار الاستمرار","نظام للتسعير","نظام لتوزيع الأرباح"], ans:1, exp:"Stage-Gate هو نظام بوابات يُقيَّم فيه المشروع عند نقاط محددة لاتخاذ قرار: الاستمرار، التعديل، أو الإيقاف." },
+  { q:"ما الهدف الأساسي من ريادة نمط الحياة (Lifestyle Entrepreneurship)؟", opts:["تحقيق أرباح كبيرة","الاستحواذ على شركات","تحقيق أسلوب حياة معين قائم على شغف شخصي","التوسع الدولي"], ans:2, exp:"ريادة نمط الحياة هدفها أسلوب حياة معين وليس التوسع أو تحقيق أرباح ضخمة. مثل: السفر، التصوير، التدريب الحر." },
+  { q:"ما المقصود بـ Cross-functional teams في عوامل نجاح المنتجات؟", opts:["فرق من جنسيات مختلفة","فرق عمل متعددة التخصصات تعمل معاً من الفكرة للإطلاق","فرق العمل عن بُعد","فرق المبيعات فقط"], ans:1, exp:"Cross-functional teams = فرق عمل تضم تخصصات متعددة (هندسة، تسويق، تصميم، مالية) تعمل معاً طوال مراحل المشروع." },
+  { q:"أيٌّ مما يلي يُعدّ من أساليب التنبؤ في تخطيط الأعمال؟", opts:["تحليل SWOT فقط","أسلوب دلفي القائم على رأي الخبراء","تحليل الحصة السوقية","دراسة الجدوى الأولية"], ans:1, exp:"أسلوب دلفي (Delphi) من أساليب التنبؤ المذكورة. الأساليب الأخرى: تحليل الاتجاهات، استطلاعات العملاء، العصف الذهني، السيناريوهات." },
+  { q:"في تطوير المنتجات، من يتحمل تكلفة الفرصة البديلة عند سوء اختيار المشروع؟", opts:["المستهلك","الحكومة","الشركة نفسها — بفقدان المشاريع الواعدة التي لم تُختر","الموردون"], ans:2, exp:"عند اختيار مشروع ضعيف: تكلفة مباشرة (صرف موارد على مشروع فاشل) + تكلفة فرصة بديلة (ضياع المشروع الواعد الذي لم يُختر)." },
+  { q:"ما أهمية الموقع في قطاع الخدمات مقارنة بالسلع؟", opts:["الموقع لا يهم في الخدمات","موقع الإنتاج أهم","موقع تقديم الخدمة أهم من موقع الإنتاج","الموقعان متساويان في الأهمية"], ans:2, exp:"في الخدمات، موقع التقديم أهم (مطعم، متجر تجزئة) لأن العميل يحتاج للوصول إليه. بعكس السلع التي تُنتج وتُوزَّع." },
+  { q:"ما الفرق بين استراتيجية 'جذب السوق' و'دفع التكنولوجيا'؟", opts:["لا فرق","جذب السوق للابتكارات التدريجية / دفع التكنولوجيا للاحتياجات غير المدركة","جذب السوق أحدث","دفع التكنولوجيا أرخص"], ans:1, exp:"جذب السوق: تُعدَّل المنتجات حسب رغبات العملاء المعلنة. دفع التكنولوجيا: للاحتياجات التي لا يُعبّر عنها العميل أو لا يدركها." },
+  { q:"ما الذي تقدمه الحاضنة (Business Incubator) للمشاريع الناشئة؟", opts:["تمويل نهائي فقط","إرشاد + تدريب + مساحة عمل + networking + تمويل أولي","خدمات قانونية فقط","دعم تصديري"], ans:1, exp:"الحاضنة تقدم: إرشاد (Mentorship)، برامج تدريب، مساحة عمل، بناء علاقات (Networking)، وتمويل أولي (Seed Funding)." },
+  { q:"ما المرحلة الرابعة والأخيرة في نموذج العملية الابتكارية؟", opts:["إدراك الفرصة","إيجاد الموارد","تطوير المشروع","تحقيق القيمة (Value Creation & Capture)"], ans:3, exp:"المرحلة الرابعة هي تحقيق القيمة: تجارياً (حماية الملكية الفكرية، نموذج العمل) أو اجتماعياً (تعظيم الأثر الاجتماعي)." },
+  { q:"ما أهم خصائص ريادة الأعمال الاجتماعية؟", opts:["الربح هو الهدف الأول","تمزج الأهداف الاقتصادية بالأثر الاجتماعي والربح وسيلة لا هدف","تعمل في قطاع التكنولوجيا فقط","تهدف للتوسع الدولي فقط"], ans:1, exp:"الريادة الاجتماعية تجمع الاقتصاد والمجتمع — الربح ضروري للاستدامة لكنه ليس الهدف الأول. مثال: إعادة التدوير وتمكين المرأة." },
+  { q:"ما عدد أنواع حاضنات الأعمال المذكورة في المنهج؟", opts:["نوعان","3 أنواع","5 أنواع","7 أنواع"], ans:1, exp:"3 أنواع من حاضنات الأعمال: متعددة الاستخدامات، حاضنات التنمية الاقتصادية، وحاضنات التكنولوجيا." },
+  { q:"ما المعيار الأساسي لتقييم المشاريع عالية الجِدة (High Innovation)؟", opts:["الأرقام والمبيعات فقط","التأثير الاستراتيجي والتعلم التنظيمي وبناء الفرص المستقبلية","الحصة السوقية الحالية","تكلفة الإنتاج"], ans:1, exp:"مشاريع High Innovation لا تُقاس بالأرقام فقط لأن السوق غير واضح. تُقاس بالتأثير الاستراتيجي والتعلم وفتح أسواق جديدة." },
+  { q:"لماذا يُقال إن مخاطرة ريادة الشراء (Buyer Entrepreneurship) أقل من الشركات الناشئة؟", opts:["لأنها أرخص","لأن المشروع المشترى لديه بالفعل عملاء وإيرادات وسمعة في السوق","لأنها لا تحتاج لابتكار","لأنها ممولة حكومياً"], ans:1, exp:"ريادة الشراء تنطوي على مخاطرة أقل لأنك تشتري مشروعاً جاهزاً لديه: قاعدة عملاء، تدفق نقدي، وسمعة مبنية في السوق." },
+  { q:"ما المقصود بـ MVP في ريادة الأعمال؟", opts:["المنتج الأغلى ثمناً","Most Valuable Player","المنتج الأولي القابل للتطبيق لاختبار السوق","المنتج الأكثر مبيعاً"], ans:2, exp:"MVP = Minimum Viable Product = المنتج الأولي القابل للتطبيق. يُستخدم لاختبار السوق والحصول على تغذية راجعة قبل الاستثمار الكامل." },
+  { q:"ما الموارد المطلوبة في المرحلة الثانية من نموذج الابتكار؟", opts:["الإعلان فقط","مالية + بشرية + تكنولوجية + تنظيمية","مبانٍ وسيارات فقط","موارد خارجية فقط"], ans:1, exp:"في مرحلة إيجاد الموارد تحتاج لـ: موارد مالية + بشرية + تكنولوجية + تنظيمية. كلها ضرورية لبدء الابتكار بنجاح." },
+  { q:"أي من التالي صحيح عن العلاقة بين دراسة الجدوى وخطة العمل؟", opts:["خطة العمل تسبق دراسة الجدوى","دراسة الجدوى تسبق خطة العمل","هما نفس الشيء","لا علاقة بينهما"], ans:1, exp:"دراسة الجدوى أولاً (هل الفكرة قابلة للتنفيذ؟)، ثم إذا ثبتت الجدوى تأتي خطة العمل (كيف ننفذ ونُدير؟)." },
+  { q:"ما المقصود بـ 'توليد القيمة المضافة' كخاصية من خصائص ريادة الأعمال؟", opts:["رفع أسعار المنتجات","إيجاد قيمة اقتصادية أو اجتماعية جديدة من خلال منتجات أو أساليب مبتكرة","تقليل التكاليف فقط","زيادة عدد الموظفين"], ans:1, exp:"خلق القيمة المضافة يعني إيجاد قيمة اقتصادية أو اجتماعية جديدة سواء من خلال منتجات أو خدمات أو أساليب عمل مبتكرة." },
+  { q:"ما الفرق بين الريادة الابتكارية والريادة التقليدية/المقلدة؟", opts:["لا فرق في المخاطرة","الابتكارية فكرة جديدة تماماً وعالية المخاطرة / المقلدة تُحاكي نموذجاً ناجحاً ومخاطرتها أقل","المقلدة أكثر ابتكاراً","الابتكارية أقل مخاطرة"], ans:1, exp:"الريادة الابتكارية: فكرة جديدة تماماً، عالية المخاطرة والعائد. الريادة المقلدة: تُكيّف نموذجاً ناجحاً، مخاطرة أقل، شائعة في الأسواق الناشئة." },
+  { q:"ما Schumpeter عرّف ريادة الأعمال بـ؟", opts:["سلوك منظم","عملية إبداعية تهدف لإحداث تغيير في السوق","اكتشاف الفرص","إنشاء الشركات الصغيرة"], ans:1, exp:"Schumpeter عرّف ريادة الأعمال بأنها عملية إبداعية تهدف لإحداث تغيير في السوق من خلال منتجات جديدة أو طرق إنتاج مبتكرة." },
+  { q:"ما الخاصية الشخصية 'Locus of Control' في رائد الأعمال؟", opts:["التحكم في الميزانية","موقع التحكم — الشعور بأن الفرد هو المتحكم في مصيره وقراراته","التحكم في الموظفين","القدرة على التحكم في السوق"], ans:1, exp:"Locus of Control = موقع التحكم — رائد الأعمال يشعر أنه هو المسيطر على مسار حياته وقراراته، لا أن الظروف تتحكم فيه." },
+];
+
+// ============ FLASHCARD DATA ============
+const flashcards = [
+  { term:"Entrepreneurship", def:"كلمة فرنسية تعني الشخص الذي يُباشر عملاً تجارياً. تُترجم: مبادرة، ريادة، عمل حر، إنشاء مشروع." },
+  { term:"تعريف Shane & Venkataraman", def:"العملية التي يتم من خلالها اكتشاف وتقييم واستغلال فرص ابتكار سلع وخدمات مستقبلية." },
+  { term:"تعريف Peter Drucker", def:"سلوك ابتكاري منظم يقوم على البحث المنهجي عن التغيير واستثماره كفرصة لإنشاء قيمة اقتصادية أو اجتماعية." },
+  { term:"الإبداع Creativity", def:"توليد فكرة مبتكرة — قيمة فكرية — المرحلة الأولى قبل الابتكار." },
+  { term:"الابتكار Innovation", def:"تحويل الفكرة إلى قيمة اقتصادية أو اجتماعية قابلة للتطبيق — المرحلة التنفيذية." },
+  { term:"MVP", def:"Minimum Viable Product = المنتج الأولي القابل للتطبيق. يُستخدم لاختبار السوق قبل الاستثمار الكامل." },
+  { term:"Venture Capital", def:"رأس المال المخاطر الذي تعتمد عليه الشركات الناشئة القابلة للتوسع لتمويل نموها السريع." },
+  { term:"Stage-Gate", def:"نظام بوابات يُقيَّم فيه المشروع عند مراحل محددة للاستمرار أو التعديل أو الإيقاف." },
+  { term:"Perishability", def:"عدم قابلية الخدمات للتخزين. الطاقة غير المستغلة (مقاعد شاغرة) = خسارة غير مستردة." },
+  { term:"Napkin Plan", def:"خطة الورقة الواحدة — المرحلة التمهيدية السريعة لدراسة الجدوى قبل التفاصيل." },
+  { term:"الحاضنة Incubator", def:"للمشاريع المبكرة — تقدم إرشاد، تدريب، مساحة عمل، networking، تمويل أولي — مدة أطول." },
+  { term:"المسرعة Accelerator", def:"للمشاريع التي لديها منتج جاهز — تركز على النمو السريع والتجهيز للمستثمرين — 3-6 أشهر." },
+  { term:"Locus of Control", def:"موقع التحكم — خاصية شخصية لرائد الأعمال: يشعر أنه يتحكم في مصيره وقراراته." },
+  { term:"الريادة الاجتماعية", def:"تجمع الأهداف الاقتصادية بالأثر الاجتماعي. الربح وسيلة للاستدامة لا الهدف الأول." },
+  { term:"الريادة التسلسلية Serial", def:"رائد يؤسس مشروعاً، يبيعه، ثم يبدأ مشروعاً آخر. خبرة عالية في التأسيس." },
+  { term:"تكلفة الفرصة البديلة", def:"الخسارة الناتجة عن اختيار مشروع ضعيف وإهمال مشروع واعد كان يمكنه النجاح." },
+  { term:"دراسة الجدوى vs خطة العمل", def:"دراسة الجدوى: هل نفّذ الفكرة؟ (قبل البدء). خطة العمل: كيف ننفّذها؟ (بعد إثبات الجدوى)." },
+  { term:"8 عوامل نجاح المنتجات", def:"ميزة تنافسية + معرفة السوق + تعريف واضح للمنتج + إدارة مخاطر + هيكل مرن + موارد كافية + تنفيذ كفء + دعم الإدارة العليا" },
+];
+
+// ============ TAB LOGIC ============
+function showTab(name) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ============ QUIZ LOGIC ============
+let answered = 0, correct = 0;
+
+function buildQuiz() {
+  const container = document.getElementById('quizContainer');
+  container.innerHTML = '';
+  questions.forEach((q, i) => {
+    const letters = ['أ','ب','ج','د'];
+    const card = document.createElement('div');
+    card.className = 'question-card';
+    card.id = 'qcard-' + i;
+    card.innerHTML = `
+      <div class="q-header">
+        <div class="q-num">${i+1}</div>
+        <div class="q-text">${q.q}</div>
+      </div>
+      <div class="options">
+        ${q.opts.map((o, j) => `
+          <button class="option-btn" onclick="answer(${i},${j})">
+            <span class="option-letter">${letters[j]}</span>
+            ${o}
+          </button>
+        `).join('')}
+      </div>
+      <div class="explanation" id="exp-${i}">
+        <div class="exp-label">💡 الشرح:</div>
+        ${q.exp}
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function answer(qi, selected) {
+  const q = questions[qi];
+  const card = document.getElementById('qcard-' + qi);
+  const btns = card.querySelectorAll('.option-btn');
+  const exp = document.getElementById('exp-' + qi);
+
+  btns.forEach((b, j) => {
+    b.disabled = true;
+    if (j === q.ans) b.classList.add('correct');
+    else if (j === selected) b.classList.add('wrong');
+  });
+
+  exp.classList.add('show');
+  answered++;
+  if (selected === q.ans) {
+    correct++;
+    card.classList.add('answered-correct');
+  } else {
+    card.classList.add('answered-wrong');
+  }
+
+  if (answered === questions.length) showScore();
+}
+
+function showScore() {
+  const panel = document.getElementById('scorePanel');
+  const pct = Math.round((correct / questions.length) * 100);
+  document.getElementById('scoreText').textContent = correct + '/' + questions.length;
+  document.getElementById('scoreBar').style.width = pct + '%';
+  panel.style.display = 'block';
+  panel.scrollIntoView({ behavior: 'smooth' });
+}
+
+function resetQuiz() {
+  answered = 0; correct = 0;
+  document.getElementById('scorePanel').style.display = 'none';
+  buildQuiz();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ============ FLASHCARD LOGIC ============
+function buildFlash() {
+  const grid = document.getElementById('flashGrid');
+  grid.innerHTML = '';
+  flashcards.forEach(fc => {
+    const card = document.createElement('div');
+    card.className = 'flashcard';
+    card.innerHTML = `
+      <div class="fc-front">
+        <div class="fc-term">${fc.term}</div>
+        <div class="fc-hint">اضغط لتشوف التعريف</div>
+      </div>
+      <div class="fc-back">
+        <div class="fc-def">${fc.def}</div>
+      </div>
+      <div class="fc-tap">اضغط للقلب 🔄</div>
+    `;
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    grid.appendChild(card);
+  });
+}
+
+// INIT
+buildQuiz();
+buildFlash();
+</script>
+</body>
+</html>
